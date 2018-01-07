@@ -1,1 +1,2 @@
 # morroblog
+with travis ci
