@@ -26,9 +26,19 @@ github_username:  lueco
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: yab
+
 plugins:
+  - jekyll-sitemap
+  - jekyll-bootstrap-sass
   - jekyll-feed
+
+bootstrap:
+  assets: true
+
+feed:
+  path: feed.xml
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
