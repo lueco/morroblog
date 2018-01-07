@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Your awesome title</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search resu...">
+  <title>Hot to use proxy in Linux</title>
+  <meta name="description" content="Thanks for GFW, coders have to overcome difficulties for some resources. Master the skill of proxy became indispensable. Here are some tips for the Linux user.">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="canonical" href="http://localhost:4000/2017/05/08/linux-proxy.html">
   <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="/feed.xml">
   
   
@@ -67,65 +67,63 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Hot to use proxy in Linux</h1>
+    <p class="post-meta">
+      <time datetime="2017-05-08T02:10:04+08:00" itemprop="datePublished">
+        
+        May 8, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Thanks for GFW, coders have to overcome difficulties for some resources. Master the skill of proxy became indispensable. Here are some tips for the Linux user.</p>
+
+<h2 id="where-need-proxies">WHERE NEED PROXIES</h2>
+<ul>
+  <li>Browser, Chrome/Firefox/Safari etd.</li>
+  <li>Shell, handle http request bypass firewalls</li>
+</ul>
+
+<h2 id="tools">TOOLS</h2>
+<ol>
+  <li><a href="https://github.com/shadowsocks">shadowsocks</a>，a fast tunnel proxy</li>
+  <li><a href="https://www.irif.fr/~jch/software/polipo/">Polipo</a>, a caching web proxy</li>
+  <li><a href="https://github.com/FelisCatus/SwitchyOmega">SwitchyOmega</a>, Manage and switch between multiple proxies quickly &amp; easily.</li>
+</ol>
+
+<h2 id="tips">TIPS</h2>
+<ul>
+  <li>
+    <p>Conver convert socks into an HTTP proxy            <br />
+<code class="highlighter-rouge">polipo socksParentProxy=localhost:PORT daemonise=true</code></p>
+  </li>
+  <li>
+    <p>Set proxy for shell            <br />
+<code class="highlighter-rouge">export http_proxy="http://127.0.0.1:PORT/"</code></p>
+  </li>
+  <li>
+    <p>Set proxy for git             <br />
+<code class="highlighter-rouge">git config --global http.proxy 127.0.0.1:PORT</code></p>
+  </li>
+  <li>
+    <p>Use proxy in python             <br />
+<code class="highlighter-rouge">proxies = {
+  "http": cf.get('proxy','http://127.0.0.1:PORT'),
+  "https": cf.get('proxy','https://127.0.0.1:PORT'),
+}
+requests.get(url, proxies=proxies)</code></p>
+  </li>
+</ul>
+
+
+  </div>
+
   
-  
-
-
-  <ul class="post-list">
-    
-      <li>
-        
-        <span class="post-meta">Jan 7, 2018</span>
-
-        <h2>
-          <a class="post-link" href="/jekyll/update/2018/01/07/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 10, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/2017/05/10/python-example-of-google-maps-api-2.html">python examples of Google maps api</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 9, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/2017/05/09/golang-convert-string-to-binary-representation.html">Golang: convert any form of string  to int</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 8, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/2017/05/08/linux-proxy.html">Hot to use proxy in Linux</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 2, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/2017/05/02/new-start.html">New start</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-
-</div>
+</article>
 
       </div>
     </main>

@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Your awesome title</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search resu...">
+  <title>Golang: convert any form of string  to int</title>
+  <meta name="description" content="Last week, Supervisor gave me a task that reduces the output of log. Logs are information about millions of devices. Each device has a unique key. Convert ke...">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="canonical" href="http://localhost:4000/2017/05/09/golang-convert-string-to-binary-representation.html">
   <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="/feed.xml">
   
   
@@ -67,65 +67,41 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Golang: convert any form of string  to int</h1>
+    <p class="post-meta">
+      <time datetime="2017-05-09T03:11:57+08:00" itemprop="datePublished">
+        
+        May 9, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Last week, Supervisor gave me a task that reduces the output of log. Logs are information about millions of devices. Each device has a unique key. Convert key into int, and mod it with a special number, we could filter target device to log.</p>
+
+<p>mod operation in golang is %. The challenge is convert key. Here are the code to convert any form of string to int.</p>
+
+<p><code class="highlighter-rouge">func stringToInt(s string) int64 {
+	var binString string
+	for _, c := range s {
+		binString = fmt.Sprintf("%s%b", binString, c)
+	}
+	number, _ := strconv.ParseInt(binString, 2, 64)
+	return number
+}</code></p>
+
+<p>Clike <a href="https://play.golang.org/p/T9rkTsrc0B">here</a> to run a online demo</p>
+
+<p>Reforence:
+http://stackoverflow.com/questions/37349071/golang-how-to-convert-string-to-binary-representation/37350639</p>
+
+  </div>
+
   
-  
-
-
-  <ul class="post-list">
-    
-      <li>
-        
-        <span class="post-meta">Jan 7, 2018</span>
-
-        <h2>
-          <a class="post-link" href="/jekyll/update/2018/01/07/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 10, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/2017/05/10/python-example-of-google-maps-api-2.html">python examples of Google maps api</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 9, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/2017/05/09/golang-convert-string-to-binary-representation.html">Golang: convert any form of string  to int</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 8, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/2017/05/08/linux-proxy.html">Hot to use proxy in Linux</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 2, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/2017/05/02/new-start.html">New start</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-
-</div>
+</article>
 
       </div>
     </main>

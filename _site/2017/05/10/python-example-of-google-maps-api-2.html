@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Your awesome title</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search resu...">
+  <title>python examples of Google maps api</title>
+  <meta name="description" content="Last week, Sheena shouted at me that I just stand to see her suffering from apartment searching. I actually do not have any idea how to find an apartment ove...">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="canonical" href="http://localhost:4000/2017/05/10/python-example-of-google-maps-api-2.html">
   <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="/feed.xml">
   
   
@@ -67,65 +67,52 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">python examples of Google maps api</h1>
+    <p class="post-meta">
+      <time datetime="2017-05-10T10:17:21+08:00" itemprop="datePublished">
+        
+        May 10, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Last week, Sheena shouted at me that I just stand to see her suffering from apartment searching. I actually do not have any idea how to find an apartment oversea, more even I haven’t gone abroad. It’s a really tricky task.
+The succeeding days, I will post several articles about how I build a bot to find a suitable apartment nearby specify university.
+First thing.
+Since I get an address of an apartment, how could I know the time it takes to the campus.
+Use apps, such as Google Maps, do work, but it’s hard to program. Fortunately, Google Maps provides lots of map-relation APIs.</p>
+
+<p>##Here are some exampls 
+<code class="highlighter-rouge">def coord_distance(uname, hla
+t, hlon, model):
+    url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&amp;origins=%s&amp;destinations=%f,%f&amp;mode=%s&amp;key=%s" % (uname, hlat, hlon, model, DIST_KEY)
+    googlerowdis = requests_get(url).text
+    googledist = json.loads(googlerowdis)
+    dura = googledist['rows'][0]['elements'][0]['duration']['value']
+    duratext = googledist['rows'][0]['elements'][0]['duration']['text']
+    dist = googledist['rows'][0]['elements'][0]['distance']['value']
+    disttext = googledist['rows'][0]['elements'][0]['distance']['text']
+    return dura, duratext, dist, disttext</code>
+<code class="highlighter-rouge">def getGeocode(uname):
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=%s&amp;key=%s" % (uname, GEOCODE_KEY)
+    rowgeo= requests_get(url).text
+    geocode= json.loads(rowgeo)
+    zipcode = geocode['results'][0]['address_components'][-1]['short_name']
+    lat = geocode['results'][0]['geometry']['location']['lat']
+    lng = geocode['results'][0]['geometry']['location']['lng']
+    placeId= geocode['results'][0]['place_id']
+    placeType = geocode['results'][0]['types'][-1]
+    geocode={'zipcode':zipcode, 'lat':lat, 'lng':lng, 'placeId':placeId, 'placeType':placeType}
+    return geocode</code></p>
+
+  </div>
+
   
-  
-
-
-  <ul class="post-list">
-    
-      <li>
-        
-        <span class="post-meta">Jan 7, 2018</span>
-
-        <h2>
-          <a class="post-link" href="/jekyll/update/2018/01/07/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 10, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/2017/05/10/python-example-of-google-maps-api-2.html">python examples of Google maps api</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 9, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/2017/05/09/golang-convert-string-to-binary-representation.html">Golang: convert any form of string  to int</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 8, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/2017/05/08/linux-proxy.html">Hot to use proxy in Linux</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 2, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/2017/05/02/new-start.html">New start</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-
-</div>
+</article>
 
       </div>
     </main>
