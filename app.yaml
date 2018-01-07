@@ -3,6 +3,8 @@ api_version: 1
 threadsafe: false
 
 skip_files:
+- ^(_drafts|_posts|assets|files|.sass-cache)/(.*)$
+- ^[a-zA-z]+.(xml|txt|html|md|yml|ico)$
 - Gemfile
 - gae.json
 - gae.json.enc
@@ -30,6 +32,11 @@ handlers:
   static_files: _site/\1/index.html
   upload: _site/.*/index\.html
   secure: always
+
+- url: /(.*\.html)
+  static_files: _site/\1
+  upload: _site/(.*\.html)
+
 
 - url: /(.*)
   static_files: _site/404.html
