@@ -1,36 +1,41 @@
-application: luecox
-version: 1
 runtime: python27
 api_version: 1
 threadsafe: false
 
+skip_files:
+- Gemfile
+- gae.json
+- gae.json.enc
 
 handlers:
+- url: /
+  static_files: _site/index.html
+  upload: _site/index\.html
+  secure: always
 
-- url: /(.*\.(jpg|png|ico))
-  mime_type: image/png
+- url: /((archives|atom|categories|favicon|index|rss|sitemap|tags)\.(xml|txt|html|ico))$
   static_files: _site/\1
-  upload: _site/(.*\.img)
+  upload: _site/.*\.(xml|txt|html|ico)$
+  secure: always
 
-- url: /(.*\.js)
-  mime_type: text/javascript
-  static_files: _site/\1
-  upload: _site/(.*\.js)
+- url: /assets
+  static_dir: _site/assets
+  secure: always
 
-- url: /(.*\.css)
-  mime_type: text/css
-  static_files: _site/\1
-  upload: _site/(.*\.css)
+- url: /files
+  static_dir: _site/files
+  secure: always
 
-- url: /(.*\.(eot|svg|svgz|otf|ttf|woff|woff2))
-  static_files: _site/\1
-  upload: _site/(.*\.fonts)
-
-- url: /img
-  static_dir: _site/img
-
-- url: /fonts
-  static_dir: _site/fonts
+- url: /(.+)/
+  static_files: _site/\1/index.html
+  upload: _site/.*/index\.html
+  secure: always
 
 - url: /(.*)
-  script: main.py
+  static_files: _site/404.html
+  upload: _site/404\.html
+  secure: always
+
+libraries:
+- name: webapp2
+  version: "latest"
