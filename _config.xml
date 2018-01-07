@@ -1,0 +1,10 @@
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+  - .travis.yml
+  - app.yaml
+  - gae.json
+  - gae.json.enc
+
